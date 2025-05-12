@@ -1,7 +1,7 @@
 name: Release
 
 on:
-  push:
+  create:
     tags:
       - 'v*.*.*'
 
@@ -64,7 +64,7 @@ jobs:
         uses: battila7/get-version-action@v2
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --no-frozen-lockfile
 
       - name: Build browser extension
         run: make build-browser-extension
